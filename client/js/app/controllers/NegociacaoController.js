@@ -13,6 +13,7 @@ class NegociacaoController {
     this._listaNegociacoes.adiciona(this._criaNegociacao());
     this._limpaFormulario();
 
+    this._listaNegociacoes.negociacoes.length;
     console.log(this._listaNegociacoes.negociacoes);
   }
 

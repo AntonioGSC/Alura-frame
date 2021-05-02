@@ -18,8 +18,8 @@ class NegociacoesView {
 
             <tbody>
                 ${modelo.negociacoes
-                  .map((negociacao) => {
-                    return `
+                  .map(
+                    (negociacao) => `
                         <tr>
                             <td>${DateHelper.dataParaTexto(
                               negociacao.data
@@ -28,12 +28,18 @@ class NegociacoesView {
                             <td>${negociacao.valor}</td>
                             <td>${negociacao.volume}</td>
                         </tr>
-                    `;
-                  })
+                    `
+                  )
                   .join('')}
             </tbody>
 
-            <tfoot></tfoot>
+            <tfoot>
+                <td colspan="3"></td>
+                <td>${modelo.negociacoes.reduce(
+                  (total, negociacao) => total + negociacao.volume,
+                  0.0
+                )}</td>
+            </tfoot>
             </table>
         `;
   }
